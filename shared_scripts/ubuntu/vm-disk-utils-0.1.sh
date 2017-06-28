@@ -30,7 +30,7 @@
 #  This script automates the partitioning and formatting of data disks
 #  Data disks can be partitioned and formatted as seperate disks or in a RAID0 configuration
 #  The script will scan for unpartitioned and unformatted data disks and partition, format, and add fstab entries
-# Parameters :
+ # Parameters :
 #  1 - b: The base directory for mount points (default: /datadisks)
 #  2 - s  Create a striped RAID0 Array (No redundancy)
 #  3 - h  Help 
@@ -40,7 +40,7 @@
 
 help()
 {
-    echo "Usage: $(basename $0) [-b data_base] [-h] [-s] [-o mount_options]"
+,    echo "Usage: $(basename $0) [-b data_base] [-h] [-s] [-o mount_options]"
     echo ""
     echo "Options:"
     echo "   -b         base directory for mount points (default: /datadisks)"
@@ -66,7 +66,7 @@ fi
 # Base path for data disk mount points
 DATA_BASE="/datadisks"
 # Mount options for data disk
-MOUNT_OPTIONS="noatime,nodiratime,nodev,noexec,nosuid"
+MOUNT_OPTIONS="noatime,nodiratime,nodev,noexec,nosuid,nofail"
 
 while getopts b:sho: optname; do
     log "Option $optname set with value ${OPTARG}"
